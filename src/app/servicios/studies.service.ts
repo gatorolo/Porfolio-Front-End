@@ -8,7 +8,7 @@ import { Studies} from '../models/studies';
   providedIn: 'root',
 })
 export class StudiesService {
-  private apiServerUrl='https://combative-roch-gatorolo.koyeb.app'
+  private apiServerUrl='http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 

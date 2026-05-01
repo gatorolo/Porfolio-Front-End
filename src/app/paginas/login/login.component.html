@@ -1,28 +1,89 @@
 <div class="container">
   <section class="vh-60" style="background-color: transparent">
     <div class="py-4 ">
-      <div class="row d-flex justify-content-center align-items-center h-60">
-        <div class="col-sm-12 col-md-8 col-lg-6 col-xl-4">
-          <div class="card shadow-1-strong" style="border-radius: 1rem;">
-            <div class="card-body pb-5 text-center">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="login-container">
+          <div class="login-card shadow-lg">
+            <div class="card-body">
+              <h3 class="login-title">
+                {{ isChangingPassword ? 'NUEVA CLAVE' : (isRecoveringPassword ? 'RECUPERAR' : 'LOGIN') }}
+              </h3>
+              <p class="login-subtitle">
+                {{ isChangingPassword ? 'Ingrese su nueva contraseña' : (isRecoveringPassword ? 'Ingrese su email para
+                restablecer la contraseña' : 'Ingrese sus credenciales para gestionar el contenido') }}
+              </p>
 
-              <h3 class="mb-5">Ingreso</h3>
-              <span> usuario: 'user' pass: 'user'</span>
-               <hr>
-              <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+              <form #f="ngForm"
+                (ngSubmit)="isChangingPassword ? onChangePassword() : (isRecoveringPassword ? onSendRecoveryEmail() : onLogin())"
+                novalidate>
 
-                <div class="form mb-1">
-                  <input type="text" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg border border-primary" [(ngModel)]="nombreUsuario" [ngModelOptions]="{standalone: true}"required />
-                  <label class="form-label" for="nombreUsuario">Usuario</label>
-                </div>
+                <!-- Vista Cambio de Contraseña -->
+                <ng-container *ngIf="isChangingPassword">
+                  <div class="form-group">
+                    <div class="input-wrapper">
+                      <input type="password" id="nuevaPassword" name="nuevaPassword" class="modern-input"
+                        placeholder=" " [(ngModel)]="nuevaPassword" required />
+                      <label class="floating-label" for="nuevaPassword">Nueva Contraseña</label>
+                    </div>
+                  </div>
 
-                <div class="form mb-1">
-                  <input type="password" id="password"
-                    class="form-control form-control-lg border border-primary" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" required />
-                  <label class="form-label" for="password">Contraseña</label>
-                </div>
-              <hr>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                  <div class="form-group">
+                    <div class="input-wrapper">
+                      <input type="password" id="repetirPassword" name="repetirPassword" class="modern-input"
+                        placeholder=" " [(ngModel)]="repetirPassword" required />
+                      <label class="floating-label" for="repetirPassword">Repetir Contraseña</label>
+                    </div>
+                  </div>
+
+                  <button class="login-btn" type="submit">GUARDAR E INGRESAR</button>
+                  <div class="login-footer-links">
+                    <a (click)="isChangingPassword = false; router.navigate(['/paginas/login'])"
+                      class="footer-link">Cancelar</a>
+                  </div>
+                </ng-container>
+
+                <!-- Vista Login -->
+                <ng-container *ngIf="!isRecoveringPassword && !isChangingPassword">
+                  <div class="form-group">
+                    <div class="input-wrapper">
+                      <input type="text" id="nombreUsuario" name="nombreUsuario" class="modern-input" placeholder=" "
+                        [(ngModel)]="nombreUsuario" required />
+                      <label class="floating-label" for="nombreUsuario">Usuario</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="input-wrapper">
+                      <input type="password" id="password" name="password" class="modern-input" placeholder=" "
+                        [(ngModel)]="password" required />
+                      <label class="floating-label" for="password">Contraseña</label>
+                    </div>
+                  </div>
+
+                  <button class="login-btn" type="submit">INGRESAR</button>
+
+                  <div class="login-footer-links">
+                    <a *ngIf="!registroExitoso" (click)="onRegister()" class="footer-link">Registrar usuario</a>
+                    <a *ngIf="registroExitoso" (click)="onForgotPassword()" class="footer-link highlighted">Recuperar
+                      contraseña</a>
+                  </div>
+                </ng-container>
+
+                <!-- Vista Recuperación -->
+                <ng-container *ngIf="isRecoveringPassword && !isChangingPassword">
+                  <div class="form-group">
+                    <div class="input-wrapper">
+                      <input type="email" id="emailRecovery" name="emailRecovery" class="modern-input" placeholder=" "
+                        [(ngModel)]="emailRecovery" required />
+                      <label class="floating-label" for="emailRecovery">Email de Recuperación</label>
+                    </div>
+                  </div>
+                  <button class="login-btn" type="submit">ENVIAR MAIL</button>
+                  <div class="login-footer-links">
+                    <a (click)="isRecoveringPassword = false" class="footer-link">Volver al login</a>
+                  </div>
+                </ng-container>
+
               </form>
             </div>
           </div>

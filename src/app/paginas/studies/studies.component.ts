@@ -89,15 +89,15 @@ import {faPen } from '@fortawesome/free-solid-svg-icons';
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'add') {
-      button.setAttribute('data-target', '#addEducationModal');
+      button.setAttribute('data-bs-target', '#addEducationModal');
     } else if (mode === 'delete') {
       this.deleteStudy = studies;
-      button.setAttribute('data-target', '#deleteEducationModal');
+      button.setAttribute('data-bs-target', '#deleteEducationModal');
     } else if (mode === 'edit') {
       this.editEducation = studies;
-      button.setAttribute('data-target', '#editEducationModal');
+      button.setAttribute('data-bs-target', '#editEducationModal');
     }
 
     container?.appendChild(button);

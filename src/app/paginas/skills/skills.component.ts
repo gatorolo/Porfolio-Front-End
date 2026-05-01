@@ -80,15 +80,15 @@ export class SkillsComponent implements OnInit {
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'add') {
-      button.setAttribute('data-target', '#addSkillsModal');
+      button.setAttribute('data-bs-target', '#addSkillsModal');
     } else if (mode === 'delete') {
       this.deleteSkills = skills;
-      button.setAttribute('data-target', '#deleteSkillsModal');
+      button.setAttribute('data-bs-target', '#deleteSkillsModal');
     } else if (mode === 'edit') {
       this.editSkills = skills;
-      button.setAttribute('data-target', '#editSkillsModal');
+      button.setAttribute('data-bs-target', '#editSkillsModal');
     }
 
     container?.appendChild(button);

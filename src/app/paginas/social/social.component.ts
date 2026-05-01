@@ -97,15 +97,15 @@ export class SocialComponent implements OnInit {
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'add') {
-      button.setAttribute('data-target', '#addSocialModal');
+      button.setAttribute('data-bs-target', '#addSocialModal');
     } else if (mode === 'delete') {
       this.deleteSocial = social;
-      button.setAttribute('data-target', '#deleteSocialModal');
+      button.setAttribute('data-bs-target', '#deleteSocialModal');
     } else if (mode === 'edit') {
       this.editSocial = social;
-      button.setAttribute('data-target', '#editSocialModal');
+      button.setAttribute('data-bs-target', '#editSocialModal');
     }
 
     container?.appendChild(button);

@@ -9,7 +9,7 @@ import { About } from '../models/about';
 })
 
 export class AboutService {
-  private apiServerUrl='https://combative-roch-gatorolo.koyeb.app'
+  private apiServerUrl='http://localhost:8080'
 
   constructor(private http: HttpClient) {}
 

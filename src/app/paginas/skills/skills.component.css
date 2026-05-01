@@ -1,6 +1,7 @@
 body {
   box-sizing: border-box;
 }
+
 .container {
   position: relative;
   top: 2.8rem;
@@ -10,7 +11,7 @@ body {
   box-shadow: 0px 20px 15px 0 rgba(0, 0, 0, 0.4);
   transition: 0.5s;
   overflow-x: hidden;
-  background-image: url(../../../assets/entity2.jpg);
+  background-image: url(../../../assets/entity2.webp);
   background-position: center;
   background-size: cover;
 }
@@ -21,9 +22,9 @@ h1 {
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
   text-shadow: 0 0 10px #fff,
-   0 0 20px #fff,
-   0 0 50px #fff;
-   margin: 2rem 0.5rem 0.2rem;
+    0 0 20px #fff,
+    0 0 50px #fff;
+  margin: 2rem 0.5rem 0.2rem;
 }
 
 .item {
@@ -32,33 +33,41 @@ h1 {
 
 b {
   font-size: 1.8rem;
- }
+}
+
 .modal {
   z-index: 99999;
 }
 
 
- .btn-warning, .btn-danger, .btn-secondary, .btn-success {
+.btn-warning,
+.btn-danger,
+.btn-secondary,
+.btn-success {
   margin-top: -3vh;
-  margin:0 1px;
- }
+  margin: 0 1px;
+}
 
-@media screen and (min-width: 990px){
-   .container {
-      top: 1.7rem;
-      height: 74.5vh;
-   }
-   .row {
-    margin-top: 3%;
-    margin-left: 20%;
-   }
-   
-   .container {
+@media screen and (min-width: 990px) {
+  .container {
     top: 1.7rem;
     height: 74.5vh;
   }
 
-  .btn-warning, .btn-danger, .btn-secondary, .btn-success {
+  .row {
+    margin-top: 3%;
+    margin-left: 20%;
+  }
+
+  .container {
+    top: 1.7rem;
+    height: 74.5vh;
+  }
+
+  .btn-warning,
+  .btn-danger,
+  .btn-secondary,
+  .btn-success {
     margin-right: 20px;
   }
 

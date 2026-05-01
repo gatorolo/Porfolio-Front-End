@@ -8,54 +8,43 @@
         *ngIf="islogged"
       >
         <a class="nav-link fs-4 mx-5" style="color: #fff">
-          Add Project <span class="sr-only">(current)</span></a
-        >
+          Add Project <span class="sr-only">(current)</span></a>
       </button>
     </div>
 
     <div id="main-container" class="main-container">
-      <div *ngFor="let experiencia of experiencias">
+      <div *ngFor="let exp of experiencias">
         <div class="row item text-center">
           <div class="row row1 mt-1">
-            <h1>{{ experiencia.tituloExp }}</h1>
+            <h1>{{ exp.tituloExp }}</h1>
           </div>
           <div class="row row2">
-            <img src="{{ experiencia.imgExp }}" alt="imagen experiencia" />
+            <img src="{{ exp.imgExp }}" alt="imagen experiencia" width="400" height="300" loading="lazy" />
           </div>
           <div class="row row3">
-            <span alt="descripcion experiencia">{{ experiencia.descExp }}</span>
+            <span alt="descripcion experiencia">{{ exp.descExp }}</span>
           </div>
 
           <div class="col text-center">
-            <a
-              (click)="onOpenModal('edit', experiencia)"
-              class="btn btn-warning mx-4 btn-change"
-              style="font-weight: bold"
-              data-placement="top"
-              data-toggle="tooltip"
-              data-original-title="edit"
-              *ngIf="islogged"
-              ><fa-icon
-                [icon]="faPen"
-                aria-hidden="true"
-                class="fa-xl"
-              ></fa-icon
-            ></a>
+            <a *ngIf="islogged"
+               (click)="onOpenModal('edit', exp)"
+               class="btn btn-warning mx-4 btn-change"
+               style="font-weight: bold"
+               data-placement="top"
+               data-toggle="tooltip"
+               data-original-title="edit">
+              <fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon>
+            </a>
 
-            <a
-              (click)="onOpenModal('delete', experiencia)"
-              class="btn btn-danger btn-change"
-              style="font-weight: bold"
-              data-placement="top"
-              data-toggle="tooltip"
-              data-original-title="delete"
-              *ngIf="islogged"
-              ><fa-icon
-                [icon]="faTrash"
-                aria-hidden="true"
-                class="fa-xl"
-              ></fa-icon
-            ></a>
+            <a *ngIf="islogged"
+               (click)="onOpenModal('delete', exp)"
+               class="btn btn-danger btn-change"
+               style="font-weight: bold"
+               data-placement="top"
+               data-toggle="tooltip"
+               data-original-title="delete">
+              <fa-icon [icon]="faTrash" aria-hidden="true" class="fa-xl"></fa-icon>
+            </a>
           </div>
         </div>
       </div>
@@ -130,7 +119,7 @@
                   type="button"
                   id="add-experiencia-form"
                   class="btn btn-secondary fs-3"
-                  data-dismiss="modal"
+                  data-bs-dismiss="modal"
                 >
                   Close
                 </button>
@@ -228,14 +217,14 @@
                   type="button"
                   id=""
                   class="btn btn-secondary fs-3"
-                  data-dismiss="modal"
+                  data-bs-dismiss="modal"
                 >
                   Close
                 </button>
 
                 <button
                   (click)="onUpdateExperiencia(editForm.value)"
-                  data-dismiss="modal"
+                  data-bs-dismiss="modal"
                   class="btn btn-success fs-3"
                 >
                   Save
@@ -276,14 +265,14 @@
               <button
                 type="button"
                 class="btn btn-secondary btn-lg mx-4 fs-3"
-                data-dismiss="modal"
+                data-bs-dismiss="modal"
               >
                 No
               </button>
               <button
                 (click)="onDeleteExperiencia(deleteExperiencia!.idExp)"
                 class="btn btn-danger btn-lg fs-3"
-                data-dismiss="modal"
+                data-bs-dismiss="modal"
               >
                 Yes
               </button>

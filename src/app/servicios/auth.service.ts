@@ -9,7 +9,7 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  authURL = 'https://combative-roch-gatorolo.koyeb.app/auth/';
+  authURL = 'http://localhost:8080/auth/';
 
   constructor(private httpclient: HttpClient) { }
 
@@ -19,6 +19,10 @@ export class AuthService {
 
   public login(loginUsuario: LoginUsuario): Observable<JwtDto>{
     return this.httpclient.post<JwtDto>(this.authURL + 'login', loginUsuario);
+  }
+
+  public resetPassword(resetDto: any): Observable<any> {
+    return this.httpclient.post<any>(this.authURL + 'reset-password', resetDto);
   }
 }
 

@@ -81,10 +81,10 @@ export class AboutComponent implements OnInit {
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'edit') {
       this.editAbout = about;
-      button.setAttribute('data-target', '#editAboutModal');
+      button.setAttribute('data-bs-target', '#editAboutModal');
     }
 
     container?.appendChild(button);

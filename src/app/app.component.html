@@ -1,6 +1,5 @@
 
-
-<header class="container">
+<header class="container-fluid">
     <div class="row">
       <div class="logo">
         <img class="logo" src="../assets/APLogo-20-20.png" alt="logo">
@@ -20,7 +19,7 @@
         </li>
 
         <li data-title="Skills"><a routerLink='/paginas/skills'>
-            <fa-icon [icon]="faGears">skills</fa-icon>
+            <fa-icon [icon]="faGears"></fa-icon>
           </a>
         </li>
 
@@ -56,12 +55,6 @@
      
    </header>
 
-
-
-<script>
-  document.cookie = 'same-site-cookie=foo; SameSite=Lax';
-  document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure'
-</script>
 
 
 <router-outlet></router-outlet>

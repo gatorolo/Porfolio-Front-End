@@ -9,23 +9,23 @@ import { Usuarios } from '../models/usuarios';
 })
 export class HomeService {
  
-  private apiServerUrl='https://combative-roch-gatorolo.koyeb.app'
+  private apiServerUrl='http://localhost:8080'
 
   constructor(private http: HttpClient) { }
 
   public getUsuarios():Observable<Usuarios>{
-    return this.http.get<Usuarios>(`${this.apiServerUrl}/usuarios/id/1`);
+    return this.http.get<Usuarios>(`${this.apiServerUrl}/usuario/id/1`);
   }
 
   public addUsuarios(usuarios: Usuarios):Observable<Usuarios>{
-    return this.http.post<Usuarios>(`${this.apiServerUrl}/usuarios/add`, usuarios);
+    return this.http.post<Usuarios>(`${this.apiServerUrl}/usuario/add`, usuarios);
   }
 
   public updateUsuarios(usuarios: Usuarios):Observable<Usuarios>{
-    return this.http.put<Usuarios>(`${this.apiServerUrl}/usuarios/update`, usuarios);
+    return this.http.put<Usuarios>(`${this.apiServerUrl}/usuario/update`, usuarios);
   }
 
   public deleteUsuarios(usuariosId: number):Observable<void>{
-    return this.http.delete<void>(`${this.apiServerUrl}/usuarios/delete/${usuariosId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/usuario/delete/${usuariosId}`);
   }
 }

@@ -8,7 +8,7 @@ import { Skills } from "../models/skills";
     providedIn: 'root'
   })
   export class SkillsService {
-    private apiServerUrl='https://combative-roch-gatorolo.koyeb.app'
+    private apiServerUrl='http://localhost:8080'
   
     constructor(private http: HttpClient) { }
   

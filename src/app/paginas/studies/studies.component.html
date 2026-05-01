@@ -20,7 +20,7 @@
             <h1>{{ studies.tituloEdu }}</h1> 
           </div>
           <div class="row"> 
-            <img  src="{{studies.imagenEdu }}"  alt="imagen educaciòn">
+            <img  src="{{studies.imagenEdu }}"  alt="imagen educaciòn" width="300" height="200" loading="lazy">
           </div>
         
           <div class="col text-center">
@@ -101,7 +101,7 @@
               type="button"
               id="add-education-form"
               class="btn btn-secondary fs-3"
-              data-dismiss="modal"
+              data-bs-dismiss="modal"
             >
               Close
             </button>
@@ -181,14 +181,14 @@
                     type="button"
                     id=""
                     class="btn btn-secondary fs-3"
-                    data-dismiss="modal"
+                    data-bs-dismiss="modal"
                   >
                     Close
                   </button>
 
                   <button
                   (click)="onUpdateEducation(editForm.value)"
-                  data-dismiss="modal"
+                  data-bs-dismiss="modal"
                   class="btn btn-success fs-3"
                   >
                   Save
@@ -226,14 +226,14 @@
               <button
               type="button"
               class="btn btn-secondary btn-lg mx-4 fs-3"
-              data-dismiss="modal"
+              data-bs-dismiss="modal"
               >
                  No
               </button>
               <button
                (click)="onDeleteEducation(deleteStudy!.idEdu)"
                class="btn btn-danger btn-lg my-4 fs-3"
-               data-dismiss="modal"
+               data-bs-dismiss="modal"
               >
                Yes
             </button>

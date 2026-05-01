@@ -8,7 +8,7 @@ import { Social } from '../models/social';
   providedIn: 'root'
 })
 export class SocialService {
-  private apiServerUrl='https://combative-roch-gatorolo.koyeb.app'
+  private apiServerUrl='http://localhost:8080'
 
   constructor(private http: HttpClient) { }
 

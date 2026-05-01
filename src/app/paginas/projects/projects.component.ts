@@ -30,7 +30,7 @@ export class ProjectsComponent implements OnInit {
   roles: string[] = [];
   errMsj!: string;
   faTrash = faTrash;
-  faPen = faPen
+  faPen = faPen;
 
 
     constructor(private experienciaService: ExperienciaService, private tokenService: TokenService, private authService: AuthService, private router: Router) { }
@@ -79,15 +79,15 @@ export class ProjectsComponent implements OnInit {
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'add') {
-      button.setAttribute('data-target', '#addExperienciaModal');
+      button.setAttribute('data-bs-target', '#addExperienciaModal');
     } else if (mode === 'delete') {
       this.deleteExperiencia = experiencia;
-      button.setAttribute('data-target', '#deleteExperienciaModal');
+      button.setAttribute('data-bs-target', '#deleteExperienciaModal');
     } else if (mode === 'edit') {
       this.editExperiencia = experiencia;
-      button.setAttribute('data-target', '#editExperienciaModal');
+      button.setAttribute('data-bs-target', '#editExperienciaModal');
     }
 
     container?.appendChild(button);

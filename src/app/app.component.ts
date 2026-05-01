@@ -31,7 +31,7 @@ import {TokenService } from './servicios/token.service';
 })
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 
   public socials: Social[]=[];
@@ -66,7 +66,7 @@ export class AppComponent {
   constructor(private socialService: SocialService, private router:Router, private tokenService: TokenService, private authService: AuthService){}
  
 
-  ngOninit():void{
+  ngOnInit():void{
     this.getSocial();
     if(this.tokenService.getToken()){
       this.isLogged = true;

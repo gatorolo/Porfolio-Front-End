@@ -19,6 +19,7 @@ const routes: Routes = [
       {path: 'studies', component: StudiesComponent},
       {path: 'projects', component: ProjectsComponent},
       {path: 'login', component: LoginComponent},
+      {path: 'change-password', component: LoginComponent},
       {path: 'social', component: SocialComponent},
       
       {path: '**', redirectTo: 'home'}

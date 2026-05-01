@@ -12,7 +12,7 @@ body {
   background: linear-gradient(10deg, #ececec, #fff);
   transition: 1s;
   overflow-x: hidden;
-  background-image: url(../../../assets/EntityFramework-600x300.jpg);
+  background-image: url(../../../assets/EntityFramework-600x300.webp);
   background-repeat: no-repeat;
   background-size: cover; 
 }

@@ -22,10 +22,11 @@
 }
 
 .perfil {
-  margin-left: 10%;
+  margin-left: auto;
   width: 85%;
   border-radius: 50%;
   object-fit: cover;
+  transform: translateX(20px);
 }
 
 .row {
@@ -43,7 +44,6 @@ h1 {
   text-shadow: 0 0 10px #fff,
     0 0 20px #fff,
     0 0 50px #fff;
-  text-align: center;
   margin: 0rem 8px;
   padding: 3px 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 1);
@@ -128,12 +128,19 @@ h3:hover {
     top: 90%;
     right: 0;
   }
+
+  .perfil {
+    margin-left: 5%;
+    width: 85%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
 
 @media screen and (min-width: 630px) {
   .inti {
     max-width: 80%;
-    margin: 0 10%;
+    margin: 0 auto;
   }
 
   .btn-change {

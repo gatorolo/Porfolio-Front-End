@@ -50,7 +50,7 @@ img {
 
 img:hover {
   transform: scale(2) translateY(40px);
-  transition: all .7s ease;
+  transition: all 1s ease;
 }
 
 .modal {

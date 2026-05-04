@@ -123,8 +123,8 @@ public onUpdateEducation(studies: Studies){
   this.editEducation=studies;
   document.getElementById('add-education-form')?.click();
   this.studiesService.updateStudies(studies).subscribe({
-    next: (Response:Studies) =>{
-      console.log(Response);
+    next: (response:Studies) =>{
+      console.log(response);
       this.getStudiess();
       
     },
@@ -138,7 +138,7 @@ public onUpdateEducation(studies: Studies){
 public onDeleteEducation(ideEdu:number):void{
 this.studiesService.deleteStudies(ideEdu).subscribe({
     next: (response:void) =>{
-      console.log(Response);
+      console.log(response);
       this.getStudiess();
       
     },

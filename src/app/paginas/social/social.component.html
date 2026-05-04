@@ -1,6 +1,6 @@
 <div class="container">
 
-   <!--<ul class="social">  
+  <!--<ul class="social">  
         <li><a href="https://www.facebook.com/rodrigo.rolo.77" target="_blank">
             <fa-icon [icon]="faFacebookF" aria-hidden="true"></fa-icon>
           </a></li>
@@ -16,177 +16,110 @@
         </li>
        </ul>-->
 
-       <div class="main-container m-0">
-            
-        <div id="main-container" class="main-container">
-            
-              <div class="row item text-center" *ngFor="let social of socials">
-                <div class="row mt-5">
-                  <ul>
-                   <li> <a href={{social.faceSocial}} target="_blank">
-                        <fa-icon [icon]="faFacebookF" aria-hidden="true"></fa-icon>
-                      </a></li>
-                      <li><a href={{social.instaSocial}} target="_blank">
-                        <fa-icon [icon]="faInstagram" aria-hidden="true"></fa-icon>
-                      </a></li>
-                      <li><a href={{social.gitSocial}} target="_blank">
-                         <fa-icon [icon]="faGithub" aria-hidden="true"></fa-icon>
-                       </a></li> 
-                      <li><a href={{social.linkSocial}} target="_blank">
-                        <fa-icon [icon]="faLinkedinIn" aria-hidden="true"></fa-icon>
-                      </a></li>
-                      <li><a href={{social.twitSocial}} target="_blank">
-                        <fa-icon [icon]="faTwitter" aria-hidden="true"></fa-icon>
-                      </a></li>
-                      <li><a href={{social.whatsSocial}} target="_blank">
-                        <fa-icon [icon]="faWhatsapp" aria-hidden="true"></fa-icon>
-                      </a></li>
-                    </ul>  
-                </div>
-              
-                <div class="col text-center">
-                  <a
-                    (click)="onOpenModal('edit', social)"
-                    class="btn btn-warning btn-change mx-4"
-                    style="font-weight: bold"
-                    data-placement="top"
-                    data-toggle="tooltip"
-                    data-original-title="edit"
-                    *ngIf="isLogged"
-                  ><fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
-                </div>
-              </div>
+  <div class="main-container m-0">
+
+    <div id="main-container" class="main-container">
+
+      <div class="row item text-center" *ngFor="let social of socials">
+        <div class="row mt-5">
+          <ul>
+            <li> <a href={{social.faceSocial}} target="_blank">
+                <fa-icon [icon]="faFacebookF" aria-hidden="true"></fa-icon>
+              </a></li>
+            <li><a href={{social.instaSocial}} target="_blank">
+                <fa-icon [icon]="faInstagram" aria-hidden="true"></fa-icon>
+              </a></li>
+            <li><a href={{social.gitSocial}} target="_blank">
+                <fa-icon [icon]="faGithub" aria-hidden="true"></fa-icon>
+              </a></li>
+            <li><a href={{social.linkSocial}} target="_blank">
+                <fa-icon [icon]="faLinkedinIn" aria-hidden="true"></fa-icon>
+              </a></li>
+            <li><a href={{social.twitSocial}} target="_blank">
+                <fa-icon [icon]="faTwitter" aria-hidden="true"></fa-icon>
+              </a></li>
+            <li><a href={{social.whatsSocial}} target="_blank">
+                <fa-icon [icon]="faWhatsapp" aria-hidden="true"></fa-icon>
+              </a></li>
+          </ul>
         </div>
-         
-      
-              <!--Edit Modal-->
-            
-             <div
-                class="modal fade"
-                id="editSocialModal"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="SocialEditModalLabel"
-                aria-hidden="true"
-              >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header text-center">
-                    <h3 class="modal-title text-dark" id="updateSocialModalLabel">
-                      <h2><b>Edità tu Red:</b></h2> 
-                    </h3>
-                  </div>
-            
-                  <div class="modal-body">
-                    <form #editForm="ngForm" >
-                      <div class="form-group text-center">
-                        <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Facebook</b></label>
-                        <input
-                          type="text"
-                          style="font-weight: bold"
-                          ngModel="{{editSocial?.faceSocial}}"
-                          name="faceSocial"
-                          class="form-control text-center fs-4"
-                          id="faceSocial"
-                          aria-labelledby="emailHelp"
-                          placeholder="red social"
-                        />
-                      </div>
-                      <div class="form-group text-center">
-                        <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Instagram</b></label>
-                        <input
-                          type="text"
-                          style="font-weight: bold"
-                          ngModel="{{editSocial?.instaSocial}}"
-                          name="instaSocial"
-                          class="form-control text-center fs-4"
-                          id="instaSocial"
-                          aria-labelledby="emailHelp"
-                          placeholder="red social"
-                        />
-                      </div>
-                      <div class="form-group text-center">
-                        <label for="name" style="font-weight: bold" class="h3"><b>tu URL de GitHub</b></label>
-                        <input
-                          type="text"
-                          style="font-weight: bold"
-                          ngModel="{{editSocial?.gitSocial}}"
-                          name="gitSocial"
-                          class="form-control text-center fs-4"
-                          id="gitSocial"
-                          aria-labelledby="emailHelp"
-                          placeholder="red social"
-                        />
-                      </div>
-                      <div class="form-group text-center">
-                        <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Linkedin</b></label>
-                        <input
-                          type="text"
-                          style="font-weight: bold"
-                          ngModel="{{editSocial?.linkSocial}}"
-                          name="linkSocial"
-                          class="form-control text-center fs-4"
-                          id="linkSocial"
-                          aria-labelledby="emailHelp"
-                          placeholder="red social"
-                        />
-                      </div>
-                      <div class="form-group text-center">
-                        <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Twitter</b></label>
-                        <input
-                          type="text"
-                          style="font-weight: bold"
-                          ngModel="{{editSocial?.twitSocial}}"
-                          name="twitSocial"
-                          class="form-control text-center fs-4"
-                          id="twitSocial"
-                          aria-labelledby="emailHelp"
-                          placeholder="red social"
-                        />
-                      </div>
-                      <div class="form-group text-center">
-                        <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Whatsapp</b></label>
-                        <input
-                          type="text"
-                          style="font-weight: bold"
-                          ngModel="{{editSocial?.whatsSocial}}"
-                          name="whatsSocial"
-                          class="form-control text-center fs-4"
-                          id="whatsSocial"
-                          aria-labelledby="emailHelp"
-                          placeholder="red social"
-                        />
-                      </div>
-                      
-                        
-      
-                      <div class="modal-footer">
-                        <button
-                          type="button"
-                          id=""
-                          class="btn btn-secondary fs-3"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-      
-                        <button
-                        (click)="onUpdateSocial(editForm.value)"
-                        data-bs-dismiss="modal"
-                        class="btn btn-success fs-3"
-                        >
-                        Save
-                        </button>
-                        </div>
-                    </form>
-                  </div>
-                </div>
+
+        <div class="col text-center">
+          <a (click)="onOpenModal('edit', social)" class="btn btn-warning btn-change mx-4" style="font-weight: bold"
+            data-bs-placement="top" data-bs-toggle="tooltip" title="edit" *ngIf="isLogged"><fa-icon
+              [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Edit Modal-->
+
+    <div class="modal fade" id="editSocialModal" tabindex="-1" role="dialog" aria-labelledby="SocialEditModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h3 class="modal-title text-dark" id="updateSocialModalLabel">
+              <h2><b>Edità tu Red:</b></h2>
+            </h3>
+          </div>
+
+          <div class="modal-body">
+            <form #editForm="ngForm">
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Facebook</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editSocial?.faceSocial" name="faceSocial"
+                  class="form-control text-center fs-4" id="faceSocial" aria-labelledby="emailHelp"
+                  placeholder="red social" />
               </div>
-            </div>
-</div>
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Instagram</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editSocial?.instaSocial" name="instaSocial"
+                  class="form-control text-center fs-4" id="instaSocial" aria-labelledby="emailHelp"
+                  placeholder="red social" />
+              </div>
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>tu URL de GitHub</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editSocial?.gitSocial" name="gitSocial"
+                  class="form-control text-center fs-4" id="gitSocial" aria-labelledby="emailHelp"
+                  placeholder="red social" />
+              </div>
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Linkedin</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editSocial?.linkSocial" name="linkSocial"
+                  class="form-control text-center fs-4" id="linkSocial" aria-labelledby="emailHelp"
+                  placeholder="red social" />
+              </div>
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Twitter</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editSocial?.twitSocial" name="twitSocial"
+                  class="form-control text-center fs-4" id="twitSocial" aria-labelledby="emailHelp"
+                  placeholder="red social" />
+              </div>
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>tu URL de Whatsapp</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editSocial?.whatsSocial" name="whatsSocial"
+                  class="form-control text-center fs-4" id="whatsSocial" aria-labelledby="emailHelp"
+                  placeholder="red social" />
+              </div>
+
+
+
+              <div class="modal-footer">
+                <button type="button" id="" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
+                  Close
+                </button>
+
+                <button (click)="onUpdateSocial(editForm.value)" data-bs-dismiss="modal" class="btn btn-success fs-3">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
-
-<footer class="bg-white pt-3 mt-4 mb-0">
-    <p class="text-center text-muted h4">Gatorolo</p>
- </footer>

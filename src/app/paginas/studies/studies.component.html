@@ -1,216 +1,127 @@
 <div class="container">
 
-<div class="main-container m-0">
-  
-  <div class="text-center mt-4">
-    <button
-      type="button" 
-      class="btn btn-success display-2 text-center"
-      (click)="onOpenModal('add')"  *ngIf="islogged">
-      <a class="nav-link fs-4 mx-5" style="color: #fff"
-      > Add Studies<span class="sr-only">(current)</span></a>
-    </button>
-  </div>
-      
-  <div id="main-container" class="main-container">
-    <div  *ngFor="let studies of studiess">
-      
+  <div class="main-container m-0">
+
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-success display-2 text-center" (click)="onOpenModal('add')" *ngIf="islogged">
+        <a class="nav-link fs-4 mx-5" style="color: #fff"> Add Studies<span class="sr-only">(current)</span></a>
+      </button>
+    </div>
+
+    <div id="main-container" class="main-container">
+      <div *ngFor="let studies of studiess">
+
         <div class="row item text-center">
           <div class="row mt-1">
-            <h1>{{ studies.tituloEdu }}</h1> 
+            <h1>{{ studies.tituloEdu }}</h1>
           </div>
-          <div class="row"> 
-            <img  src="{{studies.imagenEdu }}"  alt="imagen educaciòn" width="300" height="200" loading="lazy">
+          <div class="row">
+            <img [ngSrc]="studies.imagenEdu" alt="imagen educaciòn" width="300" height="200">
           </div>
-        
+
           <div class="col text-center">
-            <a
-              (click)="onOpenModal('edit', studies)"
-              class="btn btn-warning btn-edit mx-4 boton"
-              style="font-weight: bold"
-              data-placement="top"
-              data-toggle="tooltip"
-              data-original-title="edit"
-              *ngIf="islogged"
-            ><fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
-      
-            <a
-              (click)="onOpenModal('delete', studies)"
-              class="btn btn-danger btn-delete"
-              style="font-weight: bold"
-              data-placement="top"
-              data-toggle="tooltip"
-              data-original-title="delete"
-              *ngIf="islogged"
-            ><fa-icon [icon]="faTrash" aria-hidden="true" class="fa-xl"></fa-icon></a>
+            <a (click)="onOpenModal('edit', studies)" class="btn btn-warning btn-edit mx-4 boton"
+              style="font-weight: bold" data-bs-placement="top" data-bs-toggle="tooltip" title="edit"
+              *ngIf="islogged"><fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
+
+            <a (click)="onOpenModal('delete', studies)" class="btn btn-danger btn-delete" style="font-weight: bold"
+              data-bs-placement="top" data-bs-toggle="tooltip" title="delete" *ngIf="islogged"><fa-icon
+                [icon]="faTrash" aria-hidden="true" class="fa-xl"></fa-icon></a>
           </div>
         </div>
-      
-    </div>
-  </div>
-    
-           <!--Add Modal-->
-      
-    <div
-    class="modal fade"
-    id="addEducationModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="addEducationModalLabel"
-    aria-hidden="true"
-    >
-   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header alAbrir">
-        <h2 class="modal-title text-dark" id="addEducationModalLabel"><b>Sumà tu Educaciòn</b> </h2>
-      </div>
 
-      <div class="modal-body">
-        <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
-          <div class="form-group text-center">
-            <label for="tituloEdu" class="h3"><b>Tu Título</b> </label>
-            <input
-              type="text"
-              style="font-weight: bold"
-              ngModel
-              name="tituloEdu"
-              class="form-control text-center fs-3"
-              id="tituloEdu"
-              placeholder="Titulo"
-              required
-            />
-
-          </div>
-
-          <div class="form-group text-center">
-            <label for="imagenEdu text-dark" class="h3"><b>URL de la imagen</b> </label>
-            <input
-              type="text"
-              style="font-weight: bold"
-              ngModel
-              name="imagenEdu"
-              class="form-control text-center fs-3"
-              id=" imagenEdu"
-              placeholder="URL"
-              required
-            />
-          </div>
-
-          <div class="modal-footer">
-            <button
-              type="button"
-              id="add-education-form"
-              class="btn btn-secondary fs-3"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              [disabled]="addForm.invalid"
-              type="submit"
-              class="btn btn-success fs-3"
-            >
-              Save
-            </button>
-          </div>
-        </form>
       </div>
     </div>
-    </div>
-   </div>
-   
 
-        <!--Edit Modal-->
-      
-       <div
-          class="modal fade"
-          id="editEducationModal"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="EducationEditModalLabel"
-          aria-hidden="true"
-        >
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header alAbrir text-center">
-              <h3 class="modal-title text-dark" id="updateEducationModalLabel">
-                <h2><b>Edità tu Educaciòn:</b></h2> {{editEducation?.tituloEdu}}
-              </h3>
-            </div>
-      
-            <div class="modal-body">
-              <form #editForm="ngForm" >
-                <div class="form-group text-center">
-                  <label for="name" style="font-weight: bold" class="h3"><b>Tu Título</b></label>
-                  <input
-                    type="text"
-                    style="font-weight: bold"
-                    ngModel="{{editEducation?.tituloEdu}}"
-                    name="tituloEdu"
-                    class="form-control text-center fs-4"
-                    id="tituloEdu"
-                    aria-labelledby="emailHelp"
-                    placeholder="Titulo"
-                  />
-                </div>
-                <input
-                    type="hidden"
-                    ngModel="{{editEducation?.idEdu}}"
-                    name="idEdu"
-                    class="form-control text-center"
-                    id="idEdu"
-                    aria-labelledby="emailHelp"
-                    placeholder=""
-                  />
-                  
-                  <div class="form-group text-center">
-                  <label for="imagenEdu" style="font-weight: bold" class="h3"><b>URL de la imagen</b> </label>
-                  <input
-                    type="text"
-                    style="font-weight: bold"
-                    ngModel="{{editEducation?.imagenEdu}}"
-                    name="imagenEdu"
-                    class="form-control text-center fs-4"
-                    id="imagenEdu"
-                    placeholder="URL de la imagen"
-                  />
-                </div>
+    <!--Add Modal-->
 
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    id=""
-                    class="btn btn-secondary fs-3"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
+    <div class="modal fade" id="addEducationModal" tabindex="-1" role="dialog" aria-labelledby="addEducationModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header alAbrir">
+            <h2 class="modal-title text-dark" id="addEducationModalLabel"><b>Sumà tu Educaciòn</b> </h2>
+          </div>
 
-                  <button
-                  (click)="onUpdateEducation(editForm.value)"
-                  data-bs-dismiss="modal"
-                  class="btn btn-success fs-3"
-                  >
+          <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddEducation(addForm)">
+              <div class="form-group text-center">
+                <label for="tituloEdu" class="h3"><b>Tu Título</b> </label>
+                <input type="text" style="font-weight: bold" ngModel name="tituloEdu"
+                  class="form-control text-center fs-3" id="tituloEdu" placeholder="Titulo" required />
+
+              </div>
+
+              <div class="form-group text-center">
+                <label for="imagenEdu text-dark" class="h3"><b>URL de la imagen</b> </label>
+                <input type="text" style="font-weight: bold" ngModel name="imagenEdu"
+                  class="form-control text-center fs-3" id=" imagenEdu" placeholder="URL" required />
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" id="add-education-form" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
+                  Close
+                </button>
+                <button [disabled]="addForm.invalid" type="submit" class="btn btn-success fs-3">
                   Save
-                  </button>
-                  </div>
-              </form>
-            </div>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+    </div>
 
-                <!--Delete Modal-->
 
-      <div
-      data-bs-toggle="modal" data-bs-target="#deleteModalLabel"
-      class="modal fade"
-      id="deleteEducationModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="deleteModalLabel"
-      aria-hidden="true"
-      >
+    <!--Edit Modal-->
+
+    <div class="modal fade" id="editEducationModal" tabindex="-1" role="dialog"
+      aria-labelledby="EducationEditModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header alAbrir text-center">
+            <h3 class="modal-title text-dark" id="updateEducationModalLabel">
+              <h2><b>Edità tu Educaciòn:</b></h2> {{editEducation?.tituloEdu}}
+            </h3>
+          </div>
+
+          <div class="modal-body">
+            <form #editForm="ngForm">
+              <div class="form-group text-center">
+                <label for="name" style="font-weight: bold" class="h3"><b>Tu Título</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editEducation?.tituloEdu" name="tituloEdu"
+                  class="form-control text-center fs-4" id="tituloEdu" aria-labelledby="emailHelp"
+                  placeholder="Titulo" />
+              </div>
+              <input type="hidden" [ngModel]="editEducation?.idEdu" name="idEdu" class="form-control text-center"
+                id="idEdu" aria-labelledby="emailHelp" placeholder="" />
+
+              <div class="form-group text-center">
+                <label for="imagenEdu" style="font-weight: bold" class="h3"><b>URL de la imagen</b> </label>
+                <input type="text" style="font-weight: bold" [ngModel]="editEducation?.imagenEdu" name="imagenEdu"
+                  class="form-control text-center fs-4" id="imagenEdu" placeholder="URL de la imagen" />
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" id="" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
+                  Close
+                </button>
+
+                <button (click)="onUpdateEducation(editForm.value)" data-bs-dismiss="modal"
+                  class="btn btn-success fs-3">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Delete Modal-->
+
+    <div class="modal fade" id="deleteEducationModal"
+      tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
       <div class="modal-dialog text-center" role="document">
         <div class="modal-content">
           <div class="modal-header text-center alAbrir">
@@ -219,24 +130,17 @@
 
           <div class="moda-body mt-5">
             <p class="h4">
-              <b>Estas seguro de borrar?</b> 
+              <b>Estas seguro de borrar?</b>
               {{deleteStudy?.tituloEdu}}
             </p>
             <div class="modal-footer">
-              <button
-              type="button"
-              class="btn btn-secondary btn-lg mx-4 fs-3"
-              data-bs-dismiss="modal"
-              >
-                 No
+              <button type="button" class="btn btn-secondary btn-lg mx-4 fs-3" data-bs-dismiss="modal">
+                No
               </button>
-              <button
-               (click)="onDeleteEducation(deleteStudy!.idEdu)"
-               class="btn btn-danger btn-lg my-4 fs-3"
-               data-bs-dismiss="modal"
-              >
-               Yes
-            </button>
+              <button (click)="onDeleteEducation(deleteStudy!.idEdu)" class="btn btn-danger btn-lg my-4 fs-3"
+                data-bs-dismiss="modal">
+                Yes
+              </button>
             </div>
           </div>
         </div>
@@ -244,27 +148,3 @@
     </div>
   </div>
 </div>
-
-  <footer class="bg-white pt-3 mt-4">
-    <p class="text-center text-muted h4">Gatorolo</p>
-  </footer>
-
-                  
-           
-        
-        
-
-
-
-
-
-
-
-
-
-
- 
- 
-  
-  
-

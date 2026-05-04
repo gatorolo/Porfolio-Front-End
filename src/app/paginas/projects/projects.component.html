@@ -1,12 +1,7 @@
 <div class="container">
   <div class="main-container m-0">
     <div class="text-center mt-4">
-      <button
-        type="button"
-        class="btn btn-success display-2 text-center"
-        (click)="onOpenModal('add')"
-        *ngIf="islogged"
-      >
+      <button type="button" class="btn btn-success display-2 text-center" (click)="onOpenModal('add')" *ngIf="islogged">
         <a class="nav-link fs-4 mx-5" style="color: #fff">
           Add Project <span class="sr-only">(current)</span></a>
       </button>
@@ -19,30 +14,20 @@
             <h1>{{ exp.tituloExp }}</h1>
           </div>
           <div class="row row2">
-            <img src="{{ exp.imgExp }}" alt="imagen experiencia" width="400" height="300" loading="lazy" />
+            <img [ngSrc]="exp.imgExp" alt="imagen experiencia" width="400" height="300" loading="lazy" />
           </div>
           <div class="row row3">
             <span alt="descripcion experiencia">{{ exp.descExp }}</span>
           </div>
 
           <div class="col text-center">
-            <a *ngIf="islogged"
-               (click)="onOpenModal('edit', exp)"
-               class="btn btn-warning mx-4 btn-change"
-               style="font-weight: bold"
-               data-placement="top"
-               data-toggle="tooltip"
-               data-original-title="edit">
+            <a *ngIf="islogged" (click)="onOpenModal('edit', exp)" class="btn btn-warning mx-4 btn-change"
+              style="font-weight: bold" data-placement="top" data-toggle="tooltip" data-original-title="edit">
               <fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon>
             </a>
 
-            <a *ngIf="islogged"
-               (click)="onOpenModal('delete', exp)"
-               class="btn btn-danger btn-change"
-               style="font-weight: bold"
-               data-placement="top"
-               data-toggle="tooltip"
-               data-original-title="delete">
+            <a *ngIf="islogged" (click)="onOpenModal('delete', exp)" class="btn btn-danger btn-change"
+              style="font-weight: bold" data-placement="top" data-toggle="tooltip" data-original-title="delete">
               <fa-icon [icon]="faTrash" aria-hidden="true" class="fa-xl"></fa-icon>
             </a>
           </div>
@@ -52,14 +37,8 @@
 
     <!--Add Modal-->
 
-    <div
-      class="modal fade"
-      id="addExperienciaModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="addExperienciaModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="addExperienciaModal" tabindex="-1" role="dialog"
+      aria-labelledby="addExperienciaModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header alAbrir">
@@ -72,62 +51,27 @@
             <form #addForm="ngForm" (ngSubmit)="onAddExperiencia(addForm)">
               <div class="form-group text-center">
                 <label for="tituloExp" class="h3"><b>Sumà un Título</b> </label>
-                <input
-                  type="text"
-                  style="font-weight: bold"
-                  ngModel
-                  name="tituloExp"
-                  class="form-control text-center fs-3"
-                  id="tituloExp"
-                  placeholder="Titulo"
-                  required
-                />
+                <input type="text" style="font-weight: bold" ngModel name="tituloExp"
+                  class="form-control text-center fs-3" id="tituloExp" placeholder="Titulo" required />
               </div>
 
               <div class="form-group text-center">
                 <label for="imgExp" class="h3"><b>URL de la Imagen</b> </label>
-                <input
-                  type="text"
-                  style="font-weight: bold"
-                  ngModel
-                  name="imgExp"
-                  class="form-control text-center fs-3"
-                  id=" imgExp"
-                  placeholder="URL"
-                  required
-                />
+                <input type="text" style="font-weight: bold" ngModel name="imgExp" class="form-control text-center fs-3"
+                  id=" imgExp" placeholder="URL" required />
               </div>
 
               <div class="form-group text-center">
-                <label for="descExp" class="h3"
-                  ><b>Sumà una Descripciòn</b></label
-                >
-                <input
-                  type="text"
-                  style="font-weight: bold"
-                  ngModel
-                  name="descExp"
-                  class="form-control text-center fs-3"
-                  id="descExp"
-                  placeholder="Descripcion"
-                  required
-                />
+                <label for="descExp" class="h3"><b>Sumà una Descripciòn</b></label>
+                <input type="text" style="font-weight: bold" ngModel name="descExp"
+                  class="form-control text-center fs-3" id="descExp" placeholder="Descripcion" required />
               </div>
 
               <div class="modal-footer">
-                <button
-                  type="button"
-                  id="add-experiencia-form"
-                  class="btn btn-secondary fs-3"
-                  data-bs-dismiss="modal"
-                >
+                <button type="button" id="add-experiencia-form" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
                   Close
                 </button>
-                <button
-                  [disabled]="addForm.invalid"
-                  type="submit"
-                  class="btn btn-success fs-3"
-                >
+                <button [disabled]="addForm.invalid" type="submit" class="btn btn-success fs-3">
                   Save
                 </button>
               </div>
@@ -139,14 +83,8 @@
 
     <!--Edit Modal-->
 
-    <div
-      class="modal fade"
-      id="editExperienciaModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="ExperienciaEditModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="editExperienciaModal" tabindex="-1" role="dialog"
+      aria-labelledby="ExperienciaEditModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header alAbrir text-center">
@@ -158,75 +96,34 @@
           <div class="modal-body">
             <form #editForm="ngForm">
               <div class="form-group text-center">
-                <label for="name" style="font-weight: bold" class="h3"
-                  ><b>Tu Experiencia aquì</b></label
-                >
-                <input
-                  type="text"
-                  style="font-weight: bold"
-                  ngModel="{{ editExperiencia?.tituloExp }}"
-                  name="tituloExp"
-                  class="form-control text-center fs-4"
-                  id="tituloExp"
-                  aria-labelledby="emailHelp"
-                  placeholder="Titulo"
-                />
+                <label for="name" style="font-weight: bold" class="h3"><b>Tu Experiencia aquì</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editExperiencia?.tituloExp" name="tituloExp"
+                  class="form-control text-center fs-4" id="tituloExp" aria-labelledby="emailHelp"
+                  placeholder="Titulo" />
               </div>
-              <input
-                type="hidden"
-                ngModel="{{ editExperiencia?.idExp }}"
-                name="idExp"
-                class="form-control text-center"
-                id="idExp"
-                aria-labelledby="emailHelp"
-                placeholder=""
-              />
+              <input type="hidden" [ngModel]="editExperiencia?.idExp" name="idExp" class="form-control text-center"
+                id="idExp" aria-labelledby="emailHelp" placeholder="" />
               <br />
               <div class="form-group text-center">
-                <label for="imgExp" style="font-weight: bold" class="h3"
-                  ><b>URL de la Imagen</b>
+                <label for="imgExp" style="font-weight: bold" class="h3"><b>URL de la Imagen</b>
                 </label>
-                <input
-                  type="text"
-                  style="font-weight: bold"
-                  ngModel="{{ editExperiencia?.imgExp }}"
-                  name="imgExp"
-                  class="form-control text-center fs-4"
-                  id="imgExp"
-                  placeholder="URL de la Imagen"
-                />
+                <input type="text" style="font-weight: bold" [ngModel]="editExperiencia?.imgExp" name="imgExp"
+                  class="form-control text-center fs-4" id="imgExp" placeholder="URL de la Imagen" />
               </div>
               <br />
               <div class="form-group text-center">
-                <label for="descExp" style="font-weight: bold" class="h3"
-                  ><b>Sumà tu Descripciòn</b></label
-                >
-                <input
-                  type="text"
-                  style="font-weight: bold"
-                  ngModel="{{ editExperiencia?.descExp }}"
-                  name="descExp"
-                  class="form-control text-center fs-4"
-                  id="descExp"
-                  placeholder="Descripciòn"
-                />
+                <label for="descExp" style="font-weight: bold" class="h3"><b>Sumà tu Descripciòn</b></label>
+                <input type="text" style="font-weight: bold" [ngModel]="editExperiencia?.descExp" name="descExp"
+                  class="form-control text-center fs-4" id="descExp" placeholder="Descripciòn" />
               </div>
 
               <div class="modal-footer">
-                <button
-                  type="button"
-                  id=""
-                  class="btn btn-secondary fs-3"
-                  data-bs-dismiss="modal"
-                >
+                <button type="button" id="" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
                   Close
                 </button>
 
-                <button
-                  (click)="onUpdateExperiencia(editForm.value)"
-                  data-bs-dismiss="modal"
-                  class="btn btn-success fs-3"
-                >
+                <button (click)="onUpdateExperiencia(editForm.value)" data-bs-dismiss="modal"
+                  class="btn btn-success fs-3">
                   Save
                 </button>
               </div>
@@ -238,16 +135,8 @@
 
     <!--Delete Modal-->
 
-    <div
-      data-bs-toggle="modal"
-      data-bs-target="#deleteModalLabel"
-      class="modal fade"
-      id="deleteExperienciaModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="deleteModalLabel"
-      aria-hidden="true"
-    >
+    <div data-bs-toggle="modal" data-bs-target="#deleteModalLabel" class="modal fade" id="deleteExperienciaModal"
+      tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
       <div class="modal-dialog text-center" role="document">
         <div class="modal-content">
           <div class="modal-header text-center alAbrir">
@@ -262,18 +151,11 @@
               {{ deleteExperiencia?.tituloExp }}
             </p>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary btn-lg mx-4 fs-3"
-                data-bs-dismiss="modal"
-              >
+              <button type="button" class="btn btn-secondary btn-lg mx-4 fs-3" data-bs-dismiss="modal">
                 No
               </button>
-              <button
-                (click)="onDeleteExperiencia(deleteExperiencia!.idExp)"
-                class="btn btn-danger btn-lg fs-3"
-                data-bs-dismiss="modal"
-              >
+              <button (click)="onDeleteExperiencia(deleteExperiencia!.idExp)" class="btn btn-danger btn-lg fs-3"
+                data-bs-dismiss="modal">
                 Yes
               </button>
             </div>
@@ -283,7 +165,3 @@
     </div>
   </div>
 </div>
-
-<footer class="bg-white pt-3 mt-4">
-  <p class="text-center  text-muted h4">Gatorolo</p>
-</footer>

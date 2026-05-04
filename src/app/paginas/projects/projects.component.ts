@@ -113,8 +113,8 @@ public onUpdateExperiencia(experiencia: Experiencia){
   this.editExperiencia=experiencia;
   document.getElementById('add-experiencia-form')?.click();
   this.experienciaService.updateExperiencia(experiencia).subscribe({
-    next: (Response:Experiencia) =>{
-      console.log(Response);
+    next: (response:Experiencia) =>{
+      console.log(response);
       this.getExperiencia();
       
     },
@@ -128,7 +128,7 @@ public onUpdateExperiencia(experiencia: Experiencia){
 public onDeleteExperiencia(idExp:number):void{
 this.experienciaService.deleteExperiencia(idExp).subscribe({
     next: (response:void) =>{
-      console.log(Response);
+      console.log(response);
       this.getExperiencia();
       
     },

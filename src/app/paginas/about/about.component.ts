@@ -18,6 +18,7 @@ export class AboutComponent implements OnInit {
   public abouts: About[] = [];
   public about = this.aboutService.getAbout();
   public editAbout: About | undefined;
+  public deleteAbout: About | undefined;
 
   islogged = false;
   isloggingFail = false;
@@ -77,18 +78,25 @@ export class AboutComponent implements OnInit {
   }
 
   public onOpenModal(mode: string, about?: About): void {
-    const container = document.getElementById('main-container');
+    const container = document.getElementById('main-container') || document.body;
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-bs-toggle', 'modal');
-    if (mode === 'edit') {
+
+    if (mode === 'add') {
+      button.setAttribute('data-bs-target', '#addAboutModal');
+    } else if (mode === 'edit') {
       this.editAbout = about;
       button.setAttribute('data-bs-target', '#editAboutModal');
+    } else if (mode === 'delete') {
+      this.deleteAbout = about;
+      button.setAttribute('data-bs-target', '#deleteAboutModal');
     }
 
-    container?.appendChild(button);
+    container.appendChild(button);
     button.click();
+    container.removeChild(button); // Limpieza inmediata
   }
 
   public onAddAbout(addForm: NgForm): void {
@@ -108,10 +116,9 @@ export class AboutComponent implements OnInit {
 
   public onUpdateAbout(about: About) {
     this.editAbout = about;
-    document.getElementById('add-about-form')?.click();
     this.aboutService.updateAbout(about).subscribe({
-      next: (Response: About) => {
-        console.log(Response);
+      next: (response: About) => {
+        console.log(response);
         this.getAbout();
       },
       error: (error: HttpErrorResponse) => {
@@ -123,7 +130,7 @@ export class AboutComponent implements OnInit {
   public onDeleteAbout(idAb: number): void {
     this.aboutService.deleteAbout(idAb).subscribe({
       next: (response: void) => {
-        console.log(Response);
+        console.log(response);
         this.getAbout();
       },
       error: (error: HttpErrorResponse) => {

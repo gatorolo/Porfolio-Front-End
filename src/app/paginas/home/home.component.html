@@ -1,202 +1,124 @@
 <div class="container">
-         
-     <div id="main-container">
-       <div  *ngIf="usuario">
-        
-           <div class="row text-center">
-             <div class="row"> 
-               <img class="perfil" src="{{ usuario.fotoPerfil }}"  alt="fotoPerfil" width="250" height="250">
-             </div>
-             <div class="row mt-1">
-               <h1 alt="nombre">{{ usuario.nombre }}</h1> 
-             </div>
-             <div class="row"> 
-               <h3><span alt="titulo">{{ usuario.titulo }}</span></h3>  
-             </div>
+  <img ngSrc="assets/banner.webp" fill priority alt="banner" style="object-fit: cover; z-index: 0;">
 
-             <div class="row"> 
-               <h4><span alt="descripcion">{{ usuario.descripcion }}</span></h4>  
-             </div>
-        
-             <div class="col text-center">
-               <a
-                 (click)="onOpenModal('edit', usuario)"
-                 class="btn btn-warning mx-4 btn-change"
-                 style="font-weight: bold"
-                 data-placement="top"
-                 data-toggle="tooltip"
-                 data-original-title="edit"
-                 *ngIf="islogged"
-                 
-               ><fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
-             </div>
-           </div>
-       </div>
-     </div>
-      
-   
-           <!--Edit Modal-->
-         
-          <div
-             class="modal fade"
-             id="editUsuariosModal"
-             tabindex="-1"
-             role="dialog"
-             aria-labelledby="usuariosEditModalLabel"
-             aria-hidden="true"
-           >
-           <div class="modal-dialog" role="document">
-             <div class="modal-content">
- 
-               <div class="modal-header  text-center">
-                 <h2 class="modal-title" id="updateUsuariosModalLabel">
-                   <b>Edità tu Usuario</b> 
-                 </h2>
-               </div>
-         
-               <div class="modal-body">
-                 <form #editForm="ngForm" >
+  <div id="main-container">
+    <div *ngIf="usuario">
 
-                   <div class="form-group text-center">
-                     <label for="name" style="font-weight: bold" class="h3"><b>Tu Nombre</b></label>
-                     <input
-                       type="text"
-                       style="font-weight: bold"
-                       ngModel="{{editUsuarios?.nombre}}"
-                       name="nombre"
-                       class="form-control text-center fs-4"
-                       id="nombre"
-                       aria-labelledby="emailHelp"
-                       placeholder="nombre"
-                     />
-                   </div>
+      <div class="row text-center">
+        <div class="row">
+          <img class="perfil" [ngSrc]="usuario.fotoPerfil" alt="fotoPerfil" width="250" height="250" priority>
+        </div>
+        <div class="row mt-1">
+          <h1 alt="nombre">{{ usuario.nombre }}</h1>
+        </div>
+        <div class="row">
+          <h3><span alt="titulo">{{ usuario.titulo }}</span></h3>
+        </div>
 
-                   <input
-                       type="hidden"
-                       ngModel="{{editUsuarios?.id}}"
-                       name="id"
-                       class="form-control text-center"
-                       id="id"
-                       aria-labelledby="emailHelp"
-                       placeholder=""
-                     />
-                     <br>
-                     <div class="form-group text-center">
-                     <label for="fotoPerfil" style="font-weight: bold" class="h3"><b>URL de la Imagen</b> </label>
-                     <input
-                       type="text"
-                       style="font-weight: bold"
-                       ngModel="{{editUsuarios?.fotoPerfil}}"
-                       name="fotoPerfil"
-                       class="form-control text-center fs-4"
-                       id="fotoPerfil"
-                       placeholder="URL de la imagen"
-                     />
-                   </div>
-                   <br>
-                  <div class="form-group text-center">
-                     <label for="titulo" style="font-weight: bold" class="h3"><b>Tu Tìtulo</b></label>
-                     <input
-                       type="text"
-                       style="font-weight: bold"
-                       ngModel="{{editUsuarios?.titulo}}"
-                       name="titulo"
-                       class="form-control text-center fs-4"
-                       id="titulo"
-                       aria-labelledby="emailHelp"
-                       placeholder="Titulo"
-                     />
-                   </div>
-                   <br>
-                   <div class="form-group text-center">
-                     <label for="descripcion" style="font-weight: bold" class="h3"><b>Definite en una sola Palabra</b></label>
-                     <input
-                       type="text"
-                       style="font-weight: bold"
-                       ngModel="{{editUsuarios?.descripcion}}"
-                       name="descripcion"
-                       class="form-control text-center fs-4"
-                       id="descripcion"
-                       placeholder="descripciòn"
-                     />
-                   </div>
-   
-                   <div class="modal-footer">
-                     <button
-                       type="button"
-                       id=""
-                       class="btn btn-secondary fs-3"
-                       data-dismiss="modal"
-                     >
-                       Close
-                     </button>
-   
-                     <button
-                     (click)="onUpdateUsuarios(editForm.value)"
-                     data-dismiss="modal"
-                     class="btn btn-success fs-3"
-                     >
-                     Save
-                     </button>
-                     </div>
-                 </form>
-               </div>
-             </div>
-           </div>
-         </div>
-   
-                   <!--Delete Modal-->
-   
-         <div
-         data-bs-toggle="modal" data-bs-target="#deleteModalLabel"
-         class="modal fade"
-         id="deleteUsuariosModal"
-         tabindex="-1"
-         role="dialog"
-         aria-labelledby="deleteModalLabel"
-         aria-hidden="true"
-         >
-         <div class="modal-dialog text-center" role="document">
-           <div class="modal-content">
-             <div class="modal-header text-center alAbrir">
-               <h3 class="modal-title text-dark" id="deleteModalLabel"><b>Borrar Educaciòn</b> </h3>
-             </div>
-   
-             <div class="moda-body mt-5">
-               <p class="h4">
-                 <b>Estas seguro de borrar?</b> 
-                 {{deleteUsuarios?.titulo}}
-               </p>
-               <div class="modal-footer">
-                 <button
-                 type="button"
-                 class="btn btn-secondary btn-lg mx-4 fs-3"
-                 data-dismiss="modal"
-                 >
-                    No
-                 </button>
-                 <button
-                 (click)="onDeleteUsuarios(deleteUsuarios!.id)"
-                  class="btn btn-danger btn-lg fs-3"
-                  data-dismiss="modal"
-                 >Yes
-               </button>
-                  
-               
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     <div class="col-sm-12 col-md-4 col-lg-4 col-xl-10">
-      <div>
-         <img class="inti" src="../../../assets/LogosInti.png" alt="Logo INTI" width="300" height="60" loading="lazy">
+        <div class="row">
+          <h4><span alt="descripcion">{{ usuario.descripcion }}</span></h4>
+        </div>
+
+        <div class="col text-center">
+          <a (click)="onOpenModal('edit', usuario)" class="btn btn-warning mx-4 btn-change" style="font-weight: bold"
+            data-bs-placement="top" data-bs-toggle="tooltip" title="edit" *ngIf="islogged"><fa-icon
+              [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
+        </div>
       </div>
-   </div>
+    </div>
   </div>
 
 
-<footer class="bg-white pt-3 mt-4">
+  <!--Edit Modal-->
 
-   <p class="text-center text-muted h4">Gatorolo</p>
-</footer>
+  <div class="modal fade" id="editUsuariosModal" tabindex="-1" role="dialog" aria-labelledby="usuariosEditModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <div class="modal-header  text-center">
+          <h2 class="modal-title" id="updateUsuariosModalLabel">
+            <b>Edità tu Usuario</b>
+          </h2>
+        </div>
+
+        <div class="modal-body">
+          <form #editForm="ngForm">
+
+            <div class="form-group text-center">
+              <label for="name" style="font-weight: bold" class="h3"><b>Tu Nombre</b></label>
+              <input type="text" style="font-weight: bold" [ngModel]="editUsuarios?.nombre" name="nombre"
+                class="form-control text-center fs-4" id="nombre" aria-labelledby="emailHelp" placeholder="nombre" />
+            </div>
+
+            <input type="hidden" [ngModel]="editUsuarios?.id" name="id" class="form-control text-center" id="id"
+              aria-labelledby="emailHelp" placeholder="" />
+            <br>
+            <div class="form-group text-center">
+              <label for="fotoPerfil" style="font-weight: bold" class="h3"><b>URL de la Imagen</b> </label>
+              <input type="text" style="font-weight: bold" [ngModel]="editUsuarios?.fotoPerfil" name="fotoPerfil"
+                class="form-control text-center fs-4" id="fotoPerfil" placeholder="URL de la imagen" />
+            </div>
+            <br>
+            <div class="form-group text-center">
+              <label for="titulo" style="font-weight: bold" class="h3"><b>Tu Tìtulo</b></label>
+              <input type="text" style="font-weight: bold" [ngModel]="editUsuarios?.titulo" name="titulo"
+                class="form-control text-center fs-4" id="titulo" aria-labelledby="emailHelp" placeholder="Titulo" />
+            </div>
+            <br>
+            <div class="form-group text-center">
+              <label for="descripcion" style="font-weight: bold" class="h3"><b>Definite en una sola Palabra</b></label>
+              <input type="text" style="font-weight: bold" [ngModel]="editUsuarios?.descripcion" name="descripcion"
+                class="form-control text-center fs-4" id="descripcion" placeholder="descripciòn" />
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" id="" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
+                Close
+              </button>
+
+              <button (click)="onUpdateUsuarios(editForm.value)" data-bs-dismiss="modal" class="btn btn-success fs-3">
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Delete Modal-->
+
+  <div class="modal fade" id="deleteUsuariosModal"
+    tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog text-center" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center alAbrir">
+          <h3 class="modal-title text-dark" id="deleteModalLabel"><b>Borrar Educaciòn</b> </h3>
+        </div>
+
+        <div class="moda-body mt-5">
+          <p class="h4">
+            <b>Estas seguro de borrar?</b>
+            {{deleteUsuarios?.titulo}}
+          </p>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-lg mx-4 fs-3" data-bs-dismiss="modal">
+              No
+            </button>
+            <button (click)="onDeleteUsuarios(deleteUsuarios!.id)" class="btn btn-danger btn-lg fs-3"
+              data-bs-dismiss="modal">Yes
+            </button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-4 col-lg-4 col-xl-10">
+    <div>
+      <img class="inti" src="assets/LogosInti.png" alt="Logo INTI" width="300" height="60" loading="lazy">
+    </div>
+  </div>
+</div>

@@ -114,8 +114,8 @@ public onUpdateSkills(skills: Skills){
   this.editSkills=skills;
   document.getElementById('add-skills-form')?.click();
   this.skillsService.updateSkills(skills).subscribe({
-    next: (Response:Skills) =>{
-      console.log(Response);
+    next: (response:Skills) =>{
+      console.log(response);
       this.getSkills();
       
     },
@@ -129,7 +129,7 @@ public onUpdateSkills(skills: Skills){
 public onDeleteSkills(idSkills:number):void{
 this.skillsService.deleteSkills(idSkills).subscribe({
     next: (response:void) =>{
-      console.log(Response);
+      console.log(response);
       this.getSkills();
       
     },

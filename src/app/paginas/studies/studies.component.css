@@ -1,5 +1,5 @@
 body {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .container {
@@ -8,13 +8,13 @@ body {
   height: 76vh;
   width: 95vw;
   align-items: center;
-  box-shadow: 5px 20px 15px  rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 20px 15px rgba(0, 0, 0, 0.4);
   background: linear-gradient(10deg, #ececec, #fff);
   transition: 1s;
   overflow-x: hidden;
   background-image: url(../../../assets/EntityFramework-600x300.webp);
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
 }
 
 .container-item {
@@ -25,39 +25,40 @@ body {
   height: 25vh;
   padding-top: 1px;
   margin: 40px 0;
- }
+}
 
- h1 {
-   font-size: 1.8rem;
-   box-shadow: 0 5px 10px rgba(0, 0, 0, 1);
-   background-color: rgba(0, 0, 0, 0.6);
-   color: #fff;
-   text-shadow: 0 0 10px #fff,
+h1 {
+  font-size: 1.8rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-shadow: 0 0 10px #fff,
     0 0 20px #fff,
     0 0 50px #fff;
-    margin: 2rem 0.5rem 0.2rem;
- }
- 
- b {
+  margin: 2rem 0.5rem 1rem 0.5rem;
+}
+
+b {
   font-size: 1.8rem;
- }
+}
 
- img {
-   display: flex;
-   width: 100%;
-   margin: 0 4%;
-  }
-  
-  img:hover {
-   transform: scale(1.2);
-   transition: all .7s ease;
- }
+img {
+  display: flex;
+  width: 100%;
+  margin: 0 4%;
+}
 
- .modal {
+img:hover {
+  transform: scale(2) translateY(40px);
+  transition: all .7s ease;
+}
+
+.modal {
   z-index: 99999;
 }
 
-.btn-danger ,.btn-warning {
+.btn-danger,
+.btn-warning {
   position: relative;
   margin-top: 5px;
 }
@@ -67,17 +68,13 @@ body {
     top: 1.7rem;
     height: 74.5vh;
   }
+
   .main-container {
     width: 100%;
-    margin:0 27%;
+    margin: 0 27%;
   }
+
   .item {
     width: 50%;
   }
 }
-
-
- 
-  
-
-

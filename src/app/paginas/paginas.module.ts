@@ -4,6 +4,7 @@ import { PaginasroutingModule } from './paginasrouting.module';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { NgOptimizedImage } from '@angular/common';
 
 import { LoginComponent } from './login/login.component';
 import { ProjectsComponent} from './projects/projects.component';
@@ -28,7 +29,8 @@ import { SocialComponent } from './social/social.component';
     PaginasroutingModule,
     FormsModule,
     FontAwesomeModule,
-    NgCircleProgressModule.forRoot({})
+    NgOptimizedImage,
+    NgCircleProgressModule
   ]
 })
 export class PaginasModule { }

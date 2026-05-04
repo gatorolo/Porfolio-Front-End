@@ -14,10 +14,11 @@
   transition: 1s;
   overflow-y: hidden;
   overflow-x: hidden;
-  background-image: url(../../../assets/banner.webp);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+}
+
+#main-container {
+  position: relative;
+  z-index: 1;
 }
 
 .perfil {

@@ -86,15 +86,15 @@ export class HomeComponent implements OnInit {
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
+    button.setAttribute('data-bs-toggle', 'modal');
     if (mode === 'add') {
-      button.setAttribute('data-target', '#addUsuariosModal');
+      button.setAttribute('data-bs-target', '#addUsuariosModal');
     } else if (mode === 'delete') {
       this.deleteUsuarios = usuarios;
-      button.setAttribute('data-target', '#deleteUsuariosModal');
+      button.setAttribute('data-bs-target', '#deleteUsuariosModal');
     } else if (mode === 'edit') {
       this.editUsuarios = usuarios;
-      button.setAttribute('data-target', '#editUsuariosModal');
+      button.setAttribute('data-bs-target', '#editUsuariosModal');
     }
 
     container?.appendChild(button);
@@ -120,8 +120,8 @@ public onUpdateUsuarios(usuario: Usuarios){
   this.editUsuarios = usuario;
   document.getElementById('add-usuarios-form')?.click();
   this.homeService.updateUsuarios(usuario).subscribe({
-    next: (Response:Usuarios) =>{
-      console.log(Response);
+    next: (response:Usuarios) =>{
+      console.log(response);
       this.getUsuarios();
       
     },
@@ -135,7 +135,7 @@ public onUpdateUsuarios(usuario: Usuarios){
 public onDeleteUsuarios(idUsu:number):void{
 this.homeService.deleteUsuarios(idUsu).subscribe({
     next: (response:void) =>{
-      console.log(Response);
+      console.log(response);
       this.getUsuarios();
       
     },

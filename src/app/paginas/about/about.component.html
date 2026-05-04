@@ -7,84 +7,58 @@
         </div>
 
         <div class="col text-center">
-          <a
-            (click)="onOpenModal('edit', about)"
-            class="btn btn-warning mx-4 btn-change"
-            style="font-weight: bold"
-            data-placement="top"
-            data-toggle="tooltip"
-            data-original-title="edit"
-            *ngIf="islogged"
-            ><fa-icon [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
+          <a (click)="onOpenModal('edit', about)" class="btn btn-warning mx-4 btn-change" style="font-weight: bold"
+            data-bs-placement="top" data-bs-toggle="tooltip" title="edit" *ngIf="islogged"><fa-icon
+              [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
         </div>
+      </div>
+    </div>
+
+    <!-- Botón Añadir (Abajo y Centrado) -->
+    <div class="row mt-5 mb-5" *ngIf="islogged">
+      <div class="col text-center">
+        <button type="button" class="btn btn-success fs-3 px-5 shadow-sm" (click)="onOpenModal('add')">
+          <fa-icon [icon]="faPen" class="me-2"></fa-icon>
+          Añadir nueva descripciòn
+        </button>
       </div>
     </div>
   </div>
 
   <!--Edit Modal-->
 
-  <div
-    class="modal fade"
-    id="editAboutModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="aboutEditModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="editAboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutEditModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header text-center">
+        <div class="modal-header">
           <h2 class="modal-title" id="updateAboutModalLabel">
             <b>Edità tu descripciòn</b>
           </h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
           <form #editForm="ngForm">
-            <input
-              type="hidden"
-              ngModel="{{ editAbout?.idAb }}"
-              name="idAb"
-              class="form-control text-center"
-              id="idAb"
-              aria-labelledby="emailHelp"
-              placeholder=""
-            />
+            <input type="hidden" [ngModel]="editAbout?.idAb" name="idAb" class="form-control text-center" id="idAb"
+              aria-labelledby="emailHelp" placeholder="" />
             <br />
 
             <div class="form-group text-center">
-              <label for="sobreMi" style="font-weight: bold" class="h3"
-                ><b>Describite Aquì</b></label
-              >
+              <label for="sobreMi" style="font-weight: bold" class="h3"><b>Describite Aquì</b></label>
               <br />
-              <input
-                type="text"
-                style="font-weight: bold"
-                ngModel="{{ editAbout?.sobreMi }}"
-                name="sobreMi"
-                class="form-control text-center fs-4"
-                id="sobreMi"
-                aria-labelledby="emailHelp"
-                placeholder="ecribe algo sobre vos..."
-                />
+              <input type="text" style="font-weight: bold" [ngModel]="editAbout?.sobreMi" name="sobreMi"
+                class="form-control text-center fs-4" id="sobreMi" aria-labelledby="emailHelp"
+                placeholder="ecribe algo sobre vos..." />
             </div>
             <br />
 
             <div class="modal-footer">
-              <button
-                type="button"
-                id=""
-                class="btn btn-secondary fs-3"
-                data-bs-dismiss="modal"
-              >
+              <button type="button" id="" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
                 Close
               </button>
 
-              <button
-                (click)="onUpdateAbout(editForm.value)"
-                data-bs-dismiss="modal"
-                class="btn btn-success fs-3"
-              >
+              <button (click)="onUpdateAbout(editForm.value)" data-bs-dismiss="modal" class="btn btn-success fs-3">
                 Save
               </button>
             </div>
@@ -96,43 +70,65 @@
 
   <!--Delete Modal-->
 
-  <div
-    data-bs-toggle="modal"
-    data-bs-target="#deleteModalLabel"
-    class="modal fade"
-    id="deleteUsuariosModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="deleteModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="deleteAboutModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog text-center" role="document">
       <div class="modal-content">
         <div class="modal-header text-center alAbrir">
-          <h3 class="modal-title text-dark" id="deleteModalLabel">
+          <h3 class="modal-title text-white" id="deleteModalLabel">
             <b>Borrar About</b>
           </h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <div class="moda-body mt-5">
+        <div class="modal-body mt-5">
           <p class="h4">
             <b>Estas seguro de borrar?</b>
-            {{deleteAbout?.sobreMi}
+            <br>
+            <span class="text-muted">{{deleteAbout?.sobreMi}}</span>
           </p>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary btn-lg mx-4 fs-3"
-              data-bs-dismiss="modal"
-            >
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary btn-lg mx-4 fs-3" data-bs-dismiss="modal">
               No
+            </button>
+            <button (click)="onDeleteAbout(deleteAbout!.idAb)" data-bs-dismiss="modal"
+              class="btn btn-danger btn-lg fs-3">Si
             </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!--Add Modal-->
+  <div class="modal fade" id="addAboutModal" tabindex="-1" role="dialog" aria-labelledby="addAboutModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-white" id="addAboutModalLabel">
+            <b>Añadir tu descripciòn</b>
+          </h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddAbout(addForm)">
+            <div class="form-group mb-3">
+              <label for="sobreMi" class="form-label h4"><b>Sobre Mì</b></label>
+              <textarea ngModel name="sobreMi" class="form-control fs-4" id="sobreMi"
+                placeholder="Escribe algo sobre ti..." required rows="4"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary fs-3" data-bs-dismiss="modal">
+                Cancelar
+              </button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-success fs-3" data-bs-dismiss="modal">
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<footer class="bg-white pt-3 mt-4">
-  <p class="text-center text-muted h4">Gatorolo</p>
-</footer>

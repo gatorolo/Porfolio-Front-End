@@ -131,8 +131,8 @@ public onUpdateSocial(social: Social){
   this.editSocial=social;
   document.getElementById('add-social-form')?.click();
   this.socialService.updateSocial(social).subscribe({
-    next: (Response:Social) =>{
-      console.log(Response);
+    next: (response:Social) =>{
+      console.log(response);
       this.getSocial();
       
     },
@@ -146,7 +146,7 @@ public onUpdateSocial(social: Social){
 public onDeleteSocial(idSoc:number):void{
 this.socialService.deleteSocial(idSoc).subscribe({
     next: (response:void) =>{
-      console.log(Response);
+      console.log(response);
       this.getSocial();
       
     },

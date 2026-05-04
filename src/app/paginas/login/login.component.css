@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    transition-delay: 1s
+}
+
 .container {
     position: relative;
     top: 2.8rem;
@@ -15,6 +20,10 @@
     background-position: center;
 }
 
+#main-container {
+    position: relative;
+    z-index: 1;
+}
 
 .login-container {
     display: flex;

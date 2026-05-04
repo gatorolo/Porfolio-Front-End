@@ -34,7 +34,8 @@ header {
   width: auto;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Alineado a la izquierda */
+  justify-content: flex-start;
+  /* Alineado a la izquierda */
   padding-left: 0;
 }
 
@@ -44,11 +45,13 @@ img.logo {
   width: auto;
   object-fit: contain;
   margin: 0;
-  transform: scale(1.35); /* Agrandado un 15% adicional */
+  transform: scale(1.35);
+  /* Agrandado un 15% adicional */
   transform-origin: left center;
   transition: transform 0.3s ease;
   margin-left: -5px;
-  z-index: 100; /* Asegura que esté por encima de otros elementos */
+  z-index: 100;
+  /* Asegura que esté por encima de otros elementos */
   position: relative;
 }
 
@@ -209,7 +212,7 @@ ul li:nth-child(6) a:hover fa-icon {
 
 @media screen and (max-width: 760px) {
   .navbar ul {
-    top: 2em; /* Subido para coincidir con el estilo de escritorio */
+    top: 2em;
     margin-top: -5%;
     width: 100%;
     justify-content: center;
@@ -229,8 +232,8 @@ ul li:nth-child(6) a:hover fa-icon {
 
   .logo span.mobile {
     position: absolute;
-    right: 15px;
-    top: 1.5em;
+    right: 10%;
+    top: 1em;
     display: block !important;
     font-size: 1.2em;
   }
@@ -238,7 +241,8 @@ ul li:nth-child(6) a:hover fa-icon {
 
 @media screen and (min-width: 761px) and (max-width: 1024px) {
   .navbar ul {
-    top: 3em; /* Bajado para tablets */
+    top: 3em;
+    /* Bajado para tablets */
   }
 }
 
@@ -246,6 +250,7 @@ ul li:nth-child(6) a:hover fa-icon {
   .logo {
     width: 50%;
   }
+
   .logo span {
     display: none;
   }

@@ -100,8 +100,8 @@ h3:hover {
 
 .inti {
   position: relative;
-  height: 50%;
-  max-width: 80%;
+  height: auto;
+  max-width: 60%;
   margin: -20px 12% 0;
 }
 

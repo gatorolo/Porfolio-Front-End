@@ -85,7 +85,11 @@ body {
 
 /* Footer position adjustment for large screens */
 @media screen and (min-width: 1000px) {
-  footer {
-    transform: translateY(-75px);
-  }
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white !important;
+}
 }

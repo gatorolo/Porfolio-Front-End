@@ -5,7 +5,7 @@
 .container {
     position: relative;
     top: 2.8rem;
-    height: 76vh;
+    height: 85vh;
     width: 95vw;
     align-items: center;
     box-shadow: 5px 20px 15px  rgba(0, 0, 0, 0.4);
@@ -142,7 +142,7 @@ ul li a {
 @media screen and (min-width: 990px) {
     .container {
         top: 1.7rem;
-        height: 74.5vh;
+        height: 85vh;
       }
 
       ul {

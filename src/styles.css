@@ -83,13 +83,16 @@ body {
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
-/* Footer position adjustment for large screens */
-@media screen and (min-width: 1000px) {
+/* Footer fixed globally at the bottom */
 footer {
   position: fixed;
-  bottom: 15px;      /* Subido 15px desde el fondo */
+  bottom: 15px;
   width: 100%;
   z-index: 1000;
-  background-color: transparent !important; /* Transparente para ver la sombra */
+  background-color: transparent !important;
 }
+
+footer p {
+  margin: 0;
+  padding: 10px 0;
 }

@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { SocialService } from 'src/app/servicios/social.service';
 import { TokenService } from 'src/app/servicios/token.service';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
-import { faXTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-social',
@@ -31,7 +31,7 @@ export class SocialComponent implements OnInit {
   faLinkedinIn = faLinkedinIn;
   faGithub = faGithub;
   faPen = faPen;
-  faTwitter = faXTwitter;
+  faTwitter = faTwitter;
   faWhatsapp = faWhatsapp;
 
   isLogged = false;

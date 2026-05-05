@@ -75,14 +75,3 @@ b {
     margin: 2rem 0rem 0.2rem -.5rem;
   }
 }
-
-.footer-text {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  color: #6c757d;
-  font-size: 1.2rem;
-  z-index: 10;
-}

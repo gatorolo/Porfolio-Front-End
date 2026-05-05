@@ -6,7 +6,7 @@
 .container {
   position: relative;
   top: 2.8rem;
-  height: 85vh;
+  height: 76vh;
   width: 95vw;
   align-items: center;
   box-shadow: 5px 20px 15px rgba(0, 0, 0, 0.4);
@@ -234,7 +234,7 @@ h3:hover {
 
   .container {
     top: 1.7rem;
-    height: 85vh;
+    height: 74.5vh;
   }
 
   .btn-change {

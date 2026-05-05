@@ -5,7 +5,7 @@ body {
 .container {
   position: relative;
   top: 2.8rem;
-  height: 85vh;
+  height: 76vh;
   width: 95vw;
   align-items: center;
   box-shadow: 0px 20px 15px 0 rgba(0, 0, 0, 0.4);
@@ -51,7 +51,7 @@ b {
 @media screen and (min-width: 990px) {
   .container {
     top: 1.7rem;
-    height: 85vh;
+    height: 74.5vh;
   }
 
   .row {
@@ -61,7 +61,7 @@ b {
 
   .container {
     top: 1.7rem;
-    height: 85vh;
+    height: 74.5vh;
   }
 
   .btn-warning,

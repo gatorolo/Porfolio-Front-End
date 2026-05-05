@@ -3,8 +3,8 @@ body {
 }
 .container {
   position: relative;
-    top: 1rem;
-    height: 85vh;
+    top: 2.8rem;
+    height: 76vh;
     width: 95vw;
     align-items: center;
     box-shadow: 0px 20px 15px 0 rgba(0, 0, 0, 0.4);
@@ -43,8 +43,8 @@ body {
 
 @media screen and (min-width: 990px) {
   .container {
-    top: 1rem;
-    height: 85vh;
+    top: 1.7rem;
+    height: 75vh;
   }
   .parrafo {
     font-size: 1.5rem;
@@ -53,7 +53,7 @@ body {
   }
 
   .container {
-    height: 85vh;
+    height: 74.5vh;
   }
 }
 

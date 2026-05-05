@@ -7,7 +7,7 @@ import { AboutService } from 'src/app/servicios/about.service';
 import { AuthService } from 'src/app/servicios/auth.service';
 import { TokenService } from 'src/app/servicios/token.service';
 import { LoginUsuario } from 'src/app/models/login-usuario';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-about',
@@ -28,6 +28,7 @@ export class AboutComponent implements OnInit {
   roles: string[] = [];
   errMsj!: string;
   faPen = faPen;
+  faTrash = faTrash;
 
   constructor(
     private aboutService: AboutService,

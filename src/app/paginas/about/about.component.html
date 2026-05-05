@@ -10,6 +10,9 @@
           <a (click)="onOpenModal('edit', about)" class="btn btn-warning mx-4 btn-change" style="font-weight: bold"
             data-bs-placement="top" data-bs-toggle="tooltip" title="edit" *ngIf="islogged"><fa-icon [icon]="faPen"
               aria-hidden="true" class="fa-xl"></fa-icon></a>
+          <a (click)="onOpenModal('delete', about)" class="btn btn-danger mx-4 btn-change" style="font-weight: bold"
+            data-bs-placement="top" data-bs-toggle="tooltip" title="delete" *ngIf="islogged"><fa-icon [icon]="faTrash"
+              aria-hidden="true" class="fa-xl"></fa-icon></a>
         </div>
       </div>
     </div>

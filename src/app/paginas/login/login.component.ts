@@ -93,7 +93,9 @@ export class LoginComponent implements OnInit {
       this.tokenService.setUserName('Rodrigo');
       this.tokenService.setAuthorities([{ authority: 'ROLE_ADMIN' }, { authority: 'ROLE_USER' }]);
       this.roles = ['ROLE_ADMIN', 'ROLE_USER'];
-      this.router.navigate(['/paginas/home']);
+      this.router.navigate(['/paginas/home']).then(() => {
+        window.location.reload();
+      });
       return;
     }
 
@@ -106,7 +108,9 @@ export class LoginComponent implements OnInit {
         this.tokenService.setUserName(data.nombreUsuario);
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
-        this.router.navigate(['/paginas/home'])
+        this.router.navigate(['/paginas/home']).then(() => {
+          window.location.reload();
+        });
       }, err =>{
         this.islogged = false;
         this.isloggingFail = true;

@@ -21,12 +21,12 @@
 
           <div class="col text-center">
             <a (click)="onOpenModal('edit', skills)" class="btn btn-warning mx-4 btn-change" style="font-weight: bold"
-              data-bs-placement="top" data-bs-toggle="tooltip" title="edit" *ngIf="islogged"><fa-icon
-                [icon]="faPen" aria-hidden="true" class="fa-xl"></fa-icon></a>
+              data-bs-placement="top" data-bs-toggle="tooltip" title="edit" *ngIf="islogged"><fa-icon [icon]="faPen"
+                aria-hidden="true" class="fa-xl"></fa-icon></a>
 
             <a (click)="onOpenModal('delete', skills)" class="btn btn-danger btn-change" style="font-weight: bold"
-              data-bs-placement="top" data-bs-toggle="tooltip" title="delete" *ngIf="islogged"><fa-icon
-                [icon]="faTrash" aria-hidden="true" class="fa-xl"></fa-icon></a>
+              data-bs-placement="top" data-bs-toggle="tooltip" title="delete" *ngIf="islogged"><fa-icon [icon]="faTrash"
+                aria-hidden="true" class="fa-xl"></fa-icon></a>
           </div>
         </div>
       </div>
@@ -107,7 +107,8 @@
                   Close
                 </button>
 
-                <button (click)="onUpdateSkills(editForm.value)" data-bs-dismiss="modal" class="btn btn-success fs-3 mt-2">
+                <button (click)="onUpdateSkills(editForm.value)" data-bs-dismiss="modal"
+                  class="btn btn-success fs-3 mt-2">
                   Save
                 </button>
               </div>
@@ -119,8 +120,8 @@
 
     <!--Delete Modal-->
 
-    <div class="modal fade" id="deleteSkillsModal"
-      tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteSkillsModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog text-center" role="document">
         <div class="modal-content">
           <div class="modal-header text-center alAbrir">
@@ -149,3 +150,4 @@
     </div>
   </div>
 </div>
+<span class="footer-text">@Gatorolo</span>

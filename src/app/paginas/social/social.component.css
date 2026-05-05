@@ -1,159 +1,173 @@
 * {
-    box-sizing: border-box;
-    transition-delay: 1s 
-}
-.container {
-    position: relative;
-    top: 2.8rem;
-    height: 76vh;
-    width: 95vw;
-    align-items: center;
-    box-shadow: 5px 20px 15px  rgba(0, 0, 0, 0.4);
-    background: linear-gradient(10deg, #ececec, #fff);
-    transition: 1s;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    background-image: url(../../../assets/redes.webp);
-    background-repeat: no-repeat;
-    background-size: cover ;
-    background-position: center;
+  box-sizing: border-box;
+  transition-delay: 1s
 }
 
- ul {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 43%;
-    margin: 0 93%;
-    transform: translate(-50%, -50%);
-    padding: 0;
-  }
-  
-  
-  ul li {
-    list-style: none;
-    padding: 20px 2px;
-  }
+.container {
+  position: relative;
+  top: 2.8rem;
+  height: 76vh;
+  width: 95vw;
+  align-items: center;
+  box-shadow: 5px 20px 15px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(10deg, #ececec, #fff);
+  transition: 1s;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-image: url(../../../assets/redes.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+ul {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 43%;
+  margin: 0 93%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+}
+
+
+ul li {
+  list-style: none;
+  padding: 20px 2px;
+}
 
 ul li a {
-    position: relative;
-    width: 3em;
-    height: 3em;
-    display: block;
-    text-align: center;
-    padding: 0px ;
-    margin: 0 10px;
-    border-radius: 50%;
-    border: solid .2px #fff;
-    text-decoration: none;
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.4);
+  position: relative;
+  width: 3em;
+  height: 3em;
+  display: block;
+  text-align: center;
+  padding: 0px;
+  margin: 0 10px;
+  border-radius: 50%;
+  border: solid .2px #fff;
+  text-decoration: none;
+  box-shadow: 0 10px 5px rgba(0, 0, 0, 0.4);
   background: linear-gradient(0deg, #ddd, rgb(248, 230, 230));
-    transition: .9s;
-  }
+  transition: .9s;
+}
 
-  ul li a:hover {
-    box-shadow: 0 5px 3px rgba(18, 22, 22, 0.1);
-  }
-  
-  
-  ul li a  fa-icon {
-    width: 100%;
-    height: 100%;
-    display: block;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(10deg , #fff, #ddd);
-    border-radius: 50%;
-    line-height: 48px;
-    font-size: 30px;
-    color: #262626;
-    transition:  .5s;
-  }
+ul li a:hover {
+  box-shadow: 0 5px 3px rgba(18, 22, 22, 0.1);
+}
 
-  .btn-change {
-    position: absolute;
-    top: 88%;
-    right: 0vw;
-  }
-  
-  ul li a:hover fa-icon {
-    transform: rotateY(360deg);
-  }
 
-  ul li a:hover fa-icon {
-    transform: rotateY(360deg);
-  }
-  
-  
-  ul li:nth-child(1) a:hover fa-icon {
-    color: #fff;
-    background: #3b5999;
-  }
-  
-  ul li:nth-child(2) a:hover fa-icon {
-    color: #fff;
-    background: rgb(217,60,128);
-  }
-  
-  ul li:nth-child(3) a:hover fa-icon {
-    color: #fff;
-    background: rgb(170, 68, 5);
-  }
-  
-  ul li:nth-child(4) a:hover fa-icon {
-    color: #fff;
-    background: rgb(29, 26, 23);
-  }
-  
-  ul li:nth-child(5) a:hover > fa-icon {
-    color: #fff;
-    background:rgb(103, 192, 230)  ;
-  }
-  
-  ul li:nth-child(6) a:hover fa-icon {
-    color: #fff;
-    background: rgb(75, 218, 96);
-  }
+ul li a fa-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(10deg, #fff, #ddd);
+  border-radius: 50%;
+  line-height: 48px;
+  font-size: 30px;
+  color: #262626;
+  transition: .5s;
+}
+
+.btn-change {
+  position: absolute;
+  top: 88%;
+  right: 0vw;
+}
+
+ul li a:hover fa-icon {
+  transform: rotateY(360deg);
+}
+
+ul li a:hover fa-icon {
+  transform: rotateY(360deg);
+}
+
+
+ul li:nth-child(1) a:hover fa-icon {
+  color: #fff;
+  background: #3b5999;
+}
+
+ul li:nth-child(2) a:hover fa-icon {
+  color: #fff;
+  background: rgb(217, 60, 128);
+}
+
+ul li:nth-child(3) a:hover fa-icon {
+  color: #fff;
+  background: rgb(170, 68, 5);
+}
+
+ul li:nth-child(4) a:hover fa-icon {
+  color: #fff;
+  background: rgb(29, 26, 23);
+}
+
+ul li:nth-child(5) a:hover>fa-icon {
+  color: #fff;
+  background: rgb(103, 192, 230);
+}
+
+ul li:nth-child(6) a:hover fa-icon {
+  color: #fff;
+  background: rgb(75, 218, 96);
+}
 
 .item {
-    top: 30%;
+  top: 30%;
 }
 
 .modal {
-    z-index: 99999;
+  z-index: 99999;
+}
+
+ul li a {
+  animation: movement 60s linear infinite;
+}
+
+@keyframes movement {
+  0% {
+    transform: translateY(-6vh);
   }
 
-  ul li a {
-    animation: movement 60s linear infinite;
+  50% {
+    transform: translateY(12vh);
   }
-  
-  @keyframes movement {
-    0% {
-      transform: translateY(-6vh);
-    }
-    50% {
-      transform: translateY(12vh);
-    }
-    100% {
-      transform: translateY(-6vh);
-    }
+
+  100% {
+    transform: translateY(-6vh);
   }
+}
 
 @media screen and (min-width: 990px) {
-    .container {
-        top: 1.7rem;
-        height: 74.5vh;
-      }
+  .container {
+    top: 1.7rem;
+    height: 74.5vh;
+  }
 
-      ul {
-        display: flex;
-        flex-direction: row;
-        margin: 3.5% 78%;
-       
-      }
+  ul {
+    display: flex;
+    flex-direction: row;
+    margin: 3.5% 78%;
 
-      .btn-change {
-        top: 85%;
-        right: 45%;
-      }
+  }
+
+  .btn-change {
+    top: 85%;
+    right: 45%;
+  }
+}
+
+.footer-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: #6c757d;
+  font-size: 1.2rem;
+  z-index: 10;
 }

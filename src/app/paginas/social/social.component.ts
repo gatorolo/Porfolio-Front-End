@@ -78,7 +78,6 @@ export class SocialComponent implements OnInit {
 
   login(){
     this.router.navigate(['/paginas/login']);
-    this.isLogged = true;
   }
 
   public getSocial():void{

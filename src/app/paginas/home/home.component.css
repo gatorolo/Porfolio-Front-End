@@ -6,7 +6,7 @@
 .container {
   position: relative;
   top: 2.8rem;
-  height: 76vh;
+  height: 85vh;
   width: 95vw;
   align-items: center;
   box-shadow: 5px 20px 15px rgba(0, 0, 0, 0.4);
@@ -273,4 +273,14 @@ h3:hover {
     top: 60%;
     right: 76.5%;
   }
+}
+.footer-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: #6c757d;
+  font-size: 1.2rem;
+  z-index: 10;
 }

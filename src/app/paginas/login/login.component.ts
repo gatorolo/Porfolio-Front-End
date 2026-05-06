@@ -84,20 +84,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(): void {
-    // Bypass para ingreso local/desarrollo
-    if (this.nombreUsuario === 'rodrigodaremberg@gmail.com' && this.password === 'Research21@') {
-      console.log("Acceso concedido mediante bypass local (Credenciales hardcodeadas)");
-      this.islogged = true;
-      this.isloggingFail = false;
-      this.tokenService.setToken('bypass-token-dev');
-      this.tokenService.setUserName('Rodrigo');
-      this.tokenService.setAuthorities([{ authority: 'ROLE_ADMIN' }, { authority: 'ROLE_USER' }]);
-      this.roles = ['ROLE_ADMIN', 'ROLE_USER'];
-      this.router.navigate(['/paginas/home']).then(() => {
-        window.location.reload();
-      });
-      return;
-    }
+
 
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
      this.authService

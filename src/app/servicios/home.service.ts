@@ -9,7 +9,7 @@ import { Usuarios } from '../models/usuarios';
 })
 export class HomeService {
  
-  private apiServerUrl='http://localhost:8080'
+  private apiServerUrl='https://porfolio-back-end-401734260571.europe-west1.run.app'
 
   constructor(private http: HttpClient) { }
 
